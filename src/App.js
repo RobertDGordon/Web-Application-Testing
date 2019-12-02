@@ -47,6 +47,11 @@ class App extends React.Component{
         newScore.foul++
       }
     }
+    if (target === 'hit'){
+      newScore.ball = 0;
+      newScore.strike = 0;
+      newScore.foul = 0;
+    }
     return this.setState({newScore})
   }
 
