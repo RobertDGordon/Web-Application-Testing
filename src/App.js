@@ -1,26 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
+import Display from './components/Display'
+import Dashboard from './components/Dashboard'
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component{
+  constructor(){
+    super();
+    this.state = {
+      score:[
+        {
+          ball: 0,
+          strike: 0,
+          foul: 0
+        }
+      ]
+    }
+  }
+
+  addBall = () =>{
+    this.setState({
+      score: [
+        {
+          ball: ball++
+        }
+      ]
+    })
+  }
+
+  render(){
+    return (
+      <>
+      <Display score={this.state.score} />
+      <Dashboard addBall={this.addBall} />
+      </>
+    )
+  }
 }
 
 export default App;
