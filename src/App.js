@@ -7,31 +7,31 @@ class App extends React.Component{
   constructor(){
     super();
     this.state = {
-      score:[
+      score:
         {
           ball: 0,
           strike: 0,
           foul: 0
         }
-      ]
     }
   }
 
-  addBall = () =>{
-    this.setState({
-      score: [
-        {
-          ball: ball++
-        }
-      ]
-    })
+    addCount = (target) =>{
+    console.log ('add target',target)
+    let newScore = this.state.score
+    if (target === 'ball'){
+      console.log ('Adding ball')
+      newScore.ball++
+    }
+    console.log (newScore)
+    return this.setState({newScore})
   }
 
   render(){
     return (
       <>
-      <Display score={this.state.score} />
-      <Dashboard addBall={this.addBall} />
+      <Display {...this.state} />
+      <Dashboard addCount={this.addCount} {...this.state} />
       </>
     )
   }
