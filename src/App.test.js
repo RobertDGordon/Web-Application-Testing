@@ -22,3 +22,27 @@ test('adds ball', () => {
     foul: 0
   });
 })
+
+test('adds strike', () => {
+  expect(testaddCount(newScore, 'strike')).toStrictEqual({
+    ball: 1,
+    strike: 1,
+    foul: 0
+  });
+})
+
+test('adds foul', () => {
+  expect(testaddCount(newScore, 'foul')).toStrictEqual({
+    ball: 1,
+    strike: 2,
+    foul: 1
+  });
+})
+
+test('adds hit', () => {
+  expect(testaddCount(newScore, 'hit')).toStrictEqual({
+    ball: 0,
+    strike: 0,
+    foul: 0
+  });
+})

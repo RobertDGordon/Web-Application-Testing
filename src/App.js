@@ -14,7 +14,7 @@ export const testaddCount = (score, target) =>{
       newScore.foul = 0;
     }else {
       newScore.ball++;
-      console.log('ball is now',newScore.ball)
+      // console.log('ball is now',newScore.ball)
     }
   }
   if (target === 'strike'){
