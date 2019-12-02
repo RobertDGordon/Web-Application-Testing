@@ -23,6 +23,7 @@ class App extends React.Component{
       if (newScore.ball === 3 ){
         newScore.ball = 0;
         newScore.strike = 0;
+        newScore.foul = 0;
       }else {
         newScore.ball++;
       }
@@ -32,11 +33,20 @@ class App extends React.Component{
       if (newScore.strike === 2 ){
         newScore.ball = 0;
         newScore.strike = 0;
+        newScore.foul = 0;
       }else {
         newScore.strike++;
       }
     }
-    // console.log (newScore)
+    if (target === 'foul'){
+      console.log ('Adding foul')
+      if (newScore.strike < 2 ){
+        newScore.strike++
+        newScore.foul++
+      }else {
+        newScore.foul++
+      }
+    }
     return this.setState({newScore})
   }
 
