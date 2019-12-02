@@ -4,7 +4,6 @@ import React from 'react'
 
 const Dashboard = props => {
     const handleClick = (e) =>{
-        console.log(e.target.dataset.txt)
         e.preventDefault()
         props.addCount(e.target.dataset.txt)
 
@@ -12,6 +11,9 @@ const Dashboard = props => {
     return(
         <>
         <button onClick={handleClick} data-txt='ball'>Ball</button>
+        <button onClick={handleClick} data-txt='strike'>Strike</button>
+        <button onClick={handleClick} data-txt='foul'>Foul</button>
+        <button onClick={handleClick} data-txt='hit'>Hit</button>
         </>
     )
 }

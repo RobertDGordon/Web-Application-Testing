@@ -17,13 +17,26 @@ class App extends React.Component{
   }
 
     addCount = (target) =>{
-    console.log ('add target',target)
     let newScore = this.state.score
     if (target === 'ball'){
       console.log ('Adding ball')
-      newScore.ball++
+      if (newScore.ball === 3 ){
+        newScore.ball = 0;
+        newScore.strike = 0;
+      }else {
+        newScore.ball++;
+      }
     }
-    console.log (newScore)
+    if (target === 'strike'){
+      console.log ('Adding strike')
+      if (newScore.strike === 2 ){
+        newScore.ball = 0;
+        newScore.strike = 0;
+      }else {
+        newScore.strike++;
+      }
+    }
+    // console.log (newScore)
     return this.setState({newScore})
   }
 
